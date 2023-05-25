@@ -7,8 +7,8 @@ export const searchCities = (term) => {
   return fetch(endoPointCity)
     .then((Response) => Response.json())
     .then((data) => {
-      if (!data) {
-        throw new Error('Nenhuma cidade encontrada');
+      if (data.length === 0) {
+        window.alert('Nenhuma cidade encontrada');
       }
       return data;
     });
