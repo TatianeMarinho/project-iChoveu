@@ -1,8 +1,6 @@
 import { handleSearch } from './helpers/pageFunctions';
 import './style.css';
 
-const token = import.meta.env.VITE_TOKEN;
-
 document.getElementById('search-form')
   .addEventListener('submit', handleSearch);
 
