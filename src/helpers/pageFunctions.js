@@ -104,6 +104,11 @@ export async function createCityElement(cityInfo) {
   cityElement.appendChild(headingElement);
   cityElement.appendChild(infoContainer);
 
+  const buttonElement = createElement('button', 'city-forecast-button');
+  buttonElement.type = 'button';
+  buttonElement.innerHTML = 'Ver previsão';
+  cityElement.appendChild(buttonElement);
+
   const ulElement = document.querySelector('#cities');
   return ulElement.appendChild(cityElement);
 }
