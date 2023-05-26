@@ -22,10 +22,14 @@ export const getWeatherByCity = (cityURL) => {
     .then((Response) => Response.json())
     .then((data) => {
       const currentElement = data.current;
+      const locationElement = data.location;
       return {
+        name: locationElement.name,
+        country: locationElement.country,
         temp: currentElement.temp_c,
         condition: currentElement.condition.text,
         icon: currentElement.condition.icon,
+        url: cityURL,
       };
     });
 };
