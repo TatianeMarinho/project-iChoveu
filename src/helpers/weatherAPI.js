@@ -14,6 +14,18 @@ export const searchCities = (term) => {
     });
 };
 
-export const getWeatherByCity = (/* cityURL */) => {
-//   seu código aqui
+export const getWeatherByCity = (cityURL) => {
+  // cityURL = url da cidade obtido na requisiçao de pesquisa de cidades
+  const endoPointTempo = `http://api.weatherapi.com/v1/current.json?lang=pt&key=${TOKEN}&q=${cityURL}`;
+
+  return fetch(endoPointTempo)
+    .then((Response) => Response.json())
+    .then((data) => {
+      const currentElement = data.current;
+      return {
+        temp: currentElement.temp_c,
+        condition: currentElement.condition.text,
+        icon: currentElement.condition.icon,
+      };
+    });
 };
