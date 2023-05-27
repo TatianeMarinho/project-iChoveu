@@ -33,3 +33,19 @@ export const getWeatherByCity = (cityURL) => {
       };
     });
 };
+
+export const getWeekByCity = async (cityURL) => {
+  const DAYS = 7;
+  const endoPointCityDays = `http://api.weatherapi.com/v1/forecast.json?lang=pt&key=${TOKEN}&q=${cityURL}&days=${DAYS}`;
+
+  const arrayDias = await fetch(endoPointCityDays);
+  const response = await arrayDias.json();
+  const wDay = response.forecast.forecastday.map((info) => ({
+    date: info.date,
+    maxTemp: info.day.maxtemp_c,
+    minTeemp: info.day.mintemp_c,
+    condition: info.day.condition.text,
+    icon: info.day.condition.icon,
+  }));
+  return wDay;
+};
