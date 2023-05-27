@@ -107,6 +107,7 @@ export async function createCityElement(cityInfo) {
   const buttonElement = createElement('button', 'city-forecast-button');
   buttonElement.type = 'button';
   buttonElement.innerHTML = 'Ver previsão';
+
   buttonElement.addEventListener('click', async () => {
     const arrayDays = await getWeekByCity(url);
     showForecast(arrayDays);
