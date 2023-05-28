@@ -35,7 +35,7 @@ export const getWeatherByCity = (cityURL) => {
 };
 
 export const getWeekByCity = async (cityURL) => {
-  const DAYS = 3;
+  const DAYS = 7;
   const endoPointCityDays = `http://api.weatherapi.com/v1/forecast.json?lang=pt&key=${TOKEN}&q=${cityURL}&days=${DAYS}`;
 
   const arrayDias = await fetch(endoPointCityDays);
