@@ -43,7 +43,7 @@ export const getWeekByCity = async (cityURL) => {
   const wDay = response.forecast.forecastday.map((info) => ({
     date: info.date,
     maxTemp: info.day.maxtemp_c,
-    minTeemp: info.day.mintemp_c,
+    minTemp: info.day.mintemp_c,
     condition: info.day.condition.text,
     icon: info.day.condition.icon,
   }));
